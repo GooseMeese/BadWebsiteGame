@@ -1,0 +1,141 @@
+:root{
+  --bg: #7f4444;           /* maroon page background */
+  --card: #f4f57a;         /* pale yellow card */
+  --ink: #161616;          /* text color */
+  --muted: #6f6f6f;        /* labels */
+  --line: #9a9a9a;         /* input underline */
+  --btn: #59b5ff;          /* button */
+  --btn-ink: #ffffff;
+  --pass-bg: #b8f5b8;      /* green card */
+  --pass-band: #89e089;
+  --fail-bg: #ffc9c9;      /* red card */
+  --fail-band: #f3a7a7;
+  --radius: 6px;
+  --shadow: 0 2px 0 rgba(0,0,0,.25), 0 6px 24px rgba(0,0,0,.2);
+}
+
+/* Try to use gg sans if present */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: "gg sans","Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.wrap {
+  min-height: 100%;
+  display: grid;
+  place-items: start center;
+  padding: 48px 16px 64px;
+}
+
+.title {
+  margin: 12px 0 24px;
+  font-weight: 700;
+  font-size: clamp(28px, 3.2vw, 38px);
+  letter-spacing: .5px;
+  text-align: center;
+}
+
+.card {
+  width: min(720px, 94vw);
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 40px 44px;
+}
+
+.card h2{
+  margin: 0 0 26px;
+  text-align: center;
+  font-size: clamp(20px, 2.6vw, 24px);
+  font-weight: 800;
+}
+
+/* Inputs */
+.field{ margin: 22px 0 10px; }
+.label{
+  display:block; font-size:14px; color:var(--muted); margin-bottom:8px;
+}
+.input{
+  width:100%;
+  font:inherit; font-size:16px;
+  padding:10px 2px 12px;
+  border:none; border-bottom:2px solid var(--line);
+  background:transparent; outline:none;
+  transition:border-color .15s ease;
+}
+.input:focus{ border-bottom-color:#323232; }
+
+/* Rules list */
+.rules{
+  margin: 14px 0 26px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Rules list */
+.rules{
+  margin: 14px 0 20px;
+  display: grid;
+  gap: 14px;
+}
+
+/* Hidden rules don't take space; visible rules animate in */
+.rule{
+  display: none;                 /* <— collapses empty space */
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .35s cubic-bezier(.22,.8,.26,.99);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,.15);
+  overflow: hidden;
+  background: var(--fail-bg);
+}
+.rule.visible{
+  display: block;                /* <— takes space only when shown */
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.rule.pass{ background: var(--pass-bg); }
+.rule.fail{ background: var(--fail-bg); }
+
+.rule-head{
+  display:flex; align-items:center; gap:10px;
+  padding: 10px 14px;
+  background: var(--fail-band);
+  font-weight: 700;
+}
+.rule.pass .rule-head{ background: var(--pass-band); }
+
+.rule-title{ flex: 0 0 auto; }
+.rule-icon{
+  margin-left: auto;
+  width: 22px; height: 22px; border-radius: 50%;
+  display:inline-grid; place-items:center;
+  font-weight:900; font-size:14px;
+  background:#fff;
+}
+.rule.pass .rule-icon{ color:#1f7a1f; }
+.rule.fail .rule-icon{ color:#ce2f2f; }
+.rule.pass .rule-icon::before{ content: "✓"; }
+.rule.fail .rule-icon::before{ content: "✕"; }
+
+.rule p{ margin:0; padding:14px; line-height:1.5; }
+
+/* Actions */
+.actions{ display:grid; place-items:center; margin-top:16px; }
+.btn{
+  border:none; background:var(--btn); color:var(--btn-ink);
+  font-weight:800; letter-spacing:.3px;
+  font-size: clamp(20px, 2.5vw, 26px);
+  line-height:1; padding: 18px 36px; border-radius:6px;
+  cursor:pointer; box-shadow:0 2px 0 rgba(0,0,0,.18); min-width:220px;
+  transition: transform .06s ease, filter .15s ease, opacity .2s ease;
+}
+.btn[disabled]{ opacity:.55; cursor:not-allowed; }
+.btn:hover:not([disabled]){ filter:brightness(1.05); }
+.btn:active:not([disabled]){ transform: translateY(1px); }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign-up • Rule Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1 class="title">Welcome to Store!</h1>
+
+    <section class="card" aria-label="Sign-up card">
+      <h2>Sign-up</h2>
+
+      <form id="signup-form" action="#" method="post" novalidate>
+        <!-- Name -->
+        <div class="field">
+          <label class="label" for="name">Name</label>
+          <input class="input" id="name" name="name" type="text" autocomplete="off" />
+        </div>
+
+        <!-- Name rules -->
+        <div class="rules" id="name-rules" aria-live="polite">
+          <div class="rule" id="name-rule-1" data-step="1">
+            <div class="rule-head">
+              <span class="rule-title">Rule 1</span>
+              <span class="rule-icon" aria-hidden="true"></span>
+            </div>
+            <p>Your name must be <b>16 characters</b> long.</p>
+          </div>
+
+          <div class="rule" id="name-rule-2" data-step="2">
+            <div class="rule-head">
+              <span class="rule-title">Rule 2</span>
+              <span class="rule-icon" aria-hidden="true"></span>
+            </div>
+            <p>Your name must contain <b>9 vowels</b>.</p>
+          </div>
+
+          <div class="rule" id="name-rule-3" data-step="3">
+            <div class="rule-head">
+              <span class="rule-title">Rule 3</span>
+              <span class="rule-icon" aria-hidden="true"></span>
+            </div>
+            <p>The <b>4th</b> and <b>9th</b> characters must be <b>“U”</b> and <b>“I”</b> respectively.</p>
+          </div>
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label class="label" for="password">Password</label>
+          <input class="input" id="password" name="password" type="password" autocomplete="new-password" disabled />
+        </div>
+
+        <!-- Password rules -->
+        <div class="rules" id="password-rules" aria-live="polite">
+          <div class="rule" id="pass-rule-1" data-step="1">
+            <div class="rule-head">
+              <span class="rule-title">Rule 1</span>
+              <span class="rule-icon" aria-hidden="true"></span>
+            </div>
+            <p>Must have at least <b>5 numbers</b>.</p>
+          </div>
+
+          <div class="rule" id="pass-rule-2" data-step="2">
+            <div class="rule-head">
+              <span class="rule-title">Rule 2</span>
+              <span class="rule-icon" aria-hidden="true"></span>
+            </div>
+            <p>Must have at least <b>3 special characters</b>.</p>
+          </div>
+
+          <div class="rule" id="pass-rule-3" data-step="3">
+            <div class="rule-head">
+              <span class="rule-title">Rule 3</span>
+              <span class="rule-icon" aria-hidden="true"></span>
+            </div>
+            <p>Must start with an uppercase <b>“P”</b>.</p>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="submit-btn" class="btn" type="submit" disabled>Sign-up</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

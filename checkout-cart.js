@@ -2,11 +2,11 @@ const CART_KEY = 'badSiteCart';
 const SESSION_INIT = 'badSiteCartInit';
 const CATALOG = {
   soda:    {name:'Soda',    price: 2.98, img:'soda.jpg'},
-  tree:    {name:'Tree',    price:43.99, img:'tree.jpg'},
-  diamond: {name:'Diamond', price:43.99, img:'diamond.jpg'},
-  keychain:{name:'Keychain',price: 1.25, img:'keychain.jpg'},
+  tree:    {name:'Tree',    price:73.99, img:'tree.jpg'},
+  diamond: {name:'Diamond', price:27.99, img:'diamond.jpg'},
+  keychain:{name:'Keychain',price:29.25, img:'keychain.jpg'},
   flowers: {name:'flowers', price:22.49, img:'flowers.jpg'},
-  gas:     {name:'gas',     price:103.00,img:'gas.jpg'}
+  gas:     {name:'gas',     price:153.00,img:'gas.jpg'}
 };
 
 function getCart(){ try{ return JSON.parse(localStorage.getItem(CART_KEY))||{} }catch{ return {} } }

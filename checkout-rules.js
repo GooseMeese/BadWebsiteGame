@@ -27,11 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       el: $('#cart-rule-4'),
-      check: ({cart}) => (cart.diamond || 0) >= 1
+      check: ({cart}) => (cart.diamond || 0) >= 2
     },
     {
       el: $('#cart-rule-5'),
-      check: ({total}) => total > 602.84
+      check: ({total}) => total > 952.84
     }
   ];
 

@@ -83,6 +83,9 @@ $('#signup-form').addEventListener('submit', (e) => {
   if (!submitBtn.disabled) {
     // all rules satisfied
     window.location.href = 'index.html';
+    // saving the password in the field, storing it locally
+    const inputPassword = passInput.value;
+    localStorage.setItem('password', inputPassword);
   }
 });
 

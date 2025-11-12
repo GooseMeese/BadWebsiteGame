@@ -1,3 +1,6 @@
+// local storage password?
+const retrievedValue = localStorage.getItem('password');
+
 // Payment-page rule engine (same behavior as the sign-up rules)
 document.addEventListener('DOMContentLoaded', () => {
   const $ = s => document.querySelector(s);
@@ -8,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const cvvInp  = $('#cvv');
   const expInp  = $('#exp');
   const payBtn  = $('#payBtn');
+
+
 
   // Name Rules
   const nameRules = [
@@ -244,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function check(){
-    const ok = (input.value === TEST_PASSWORD || input.value === '12345');
+    const ok = (input.value === retrievedValue || input.value === TEST_PASSWORD || input.value === '12345');
     ok ? success() : failOnce();
   }
 

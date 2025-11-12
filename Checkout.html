@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Store! • Checkout</title>
+  <link rel="stylesheet" href="checkout.css">
+</head>
+
+<!-- Tooth Fairy heist popup -->
+<section id="tfModal" class="tf hidden" aria-hidden="true">
+  <div class="tf-box">
+    <img src="toothfairy.png" alt="Tooth Fairy" class="tf-img">
+    <p class="tf-text">The Tooth Fairy has become a thug! He has stolen 5 of your items!</p>
+    <div class="tf-actions">
+      <button id="tfChase" class="tf-btn tf-purple">Chase the Tooth Fairy</button>
+      <button id="tfIgnore" class="tf-btn tf-yellow">Ignore this vile creature</button>
+    </div>
+  </div>
+</section>
+
+<!-- Tooth Fairy result popup -->
+<section id="tfResultModal" class="tf-result hidden" aria-hidden="true">
+  <div class="tf-result-box">
+    <p id="tfResultText"></p>
+    <button id="tfResultClose" class="tf-result-close">OK</button>
+  </div>
+</section>
+
+<body>
+  <header class="topbar">
+    <h1 class="logo">Store!</h1>
+    <div class="timer">Time Remaining: <b>9:59</b></div>
+  </header>
+
+  <!-- CHECKOUT SCREEN -->
+  <main id="checkoutScreen" class="chaos">
+    <section class="left-slab">
+      <h2 class="section-title">Shipping Address</h2>
+
+      <div class="row">
+        <input class="ugly-input long" type="text" id="fullName">
+        <div class="label-loud">Full Name</div>
+      </div>
+
+      <div class="row">
+        <input class="ugly-input long" type="text" id="street">
+        <div class="label-loud">Street Address</div>
+      </div>
+
+      <div class="row row-split">
+        <input class="ugly-input short" type="text" id="city">
+        <div class="label-loud">City</div>
+        <input class="ugly-input short" type="text" id="zip">
+        <div class="label-loud">Zip Code</div>
+      </div>
+    </section>
+
+    <aside class="cart">
+        <h2 class="cart-title">Your Cart</h2>
+
+        <div id="cartItems" class="cart-items"></div>
+
+        <div class="total">
+            <span class="total-label">TOTAL:</span>
+            <span id="totalAmount" class="total-amount">$0.00</span>
+        </div>
+
+        <!--CART RULES-->
+        <div id="cart-rules" class="rules">
+            <div class="rule" id="cart-rule-1">
+            <div class="rule-head"><span class="rule-title">Rule 1</span><span class="rule-icon"></span></div>
+            <p>Your cart must include a <b>soda</b>.</p>
+            </div>
+            <div class="rule" id="cart-rule-2">
+            <div class="rule-head"><span class="rule-title">Rule 2</span><span class="rule-icon"></span></div>
+            <p>You cannot have more than <b>1 tree</b>.</p>
+            </div>
+            <div class="rule" id="cart-rule-3">
+            <div class="rule-head"><span class="rule-title">Rule 3</span><span class="rule-icon"></span></div>
+            <p>Buy <b>5 dead flowers</b> for yourself since you're lonely.</p>
+            </div>
+            <div class="rule" id="cart-rule-4">
+            <div class="rule-head"><span class="rule-title">Rule 4</span><span class="rule-icon"></span></div>
+            <p>You must buy at least <b>1 diamond</b> for your fake significant other.</p>
+            </div>
+            <div class="rule" id="cart-rule-5">
+            <div class="rule-head"><span class="rule-title">Rule 5</span><span class="rule-icon"></span></div>
+            <p>Your total must be larger than <b>$602.84</b>.</p>
+            </div>
+        </div>
+
+        <button id="goPayBtn" class="cta-yell" type="button" disabled>GO TO PAYMENT</button>
+
+        <!-- Green remove button -->
+        <button id="removeRandom" type="button" class="remove-btn">Remove</button>
+    </aside>
+  </main>
+
+  <!-- GAME SCREEN -->
+  <section id="gameScreen" class="game hidden" aria-hidden="true" style="display:none">
+    <canvas id="runner"></canvas>
+    <div id="hud">
+      <div id="score">0</div>
+      <div id="prompt">Press Space / Tap to jump</div>
+    </div>
+  </section>
+
+  <script src="dino.js" defer></script>
+  <script src="checkout-rules.js" defer></script>
+  <script src="checkout-cart.js" defer></script>
+  <script src="toothfairy.js" defer></script>
+  
+</body>
+</html>

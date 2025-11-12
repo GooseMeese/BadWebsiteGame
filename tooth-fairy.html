@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Chase the Tooth Fairy</title>
+  <style>
+    :root{--ink:#000}
+    html,body{height:100%;margin:0;font-family:"gg sans",system-ui,sans-serif}
+    body{display:grid;place-items:center;background:#fff}
+    .top-timer{position:fixed;top:8px;left:0;right:0;text-align:center;font-size:28px;font-weight:900}
+    .big-count{position:fixed;inset:0;display:grid;place-items:center;font-size:120px;font-weight:1000}
+    .arena{position:relative;width:min(1000px,96vw);height:min(600px,70vh);border:6px solid #000}
+    .fairy{position:absolute;width:80px;height:80px;cursor:pointer;user-select:none}
+    .msg{position:fixed;bottom:16px;left:0;right:0;text-align:center;font-weight:900}
+  </style>
+</head>
+<body>
+  <div class="top-timer">Time left: <span id="timer">15</span></div>
+  <div id="pre" class="big-count">3</div>
+  <div class="arena" id="arena">
+    <img id="fairy" class="fairy" src="toothfairy.png" alt="fairy" style="display:none">
+  </div>
+  <div class="msg">Clicks: <span id="clicks">0</span> / 20</div>
+
+  <script>
+    const TARGET = 20, LIMIT = 15; // seconds
+    const timerEl = document.getElementById('timer');
+    const preEl   = document.getElementById('pre');
+    const arena   = document.getElementById('arena');
+    const fairy   = document.getElementById('fairy');
+    const clicksEl= document.getElementById('clicks');
+
+    let clicks=0, t=LIMIT, pre=3, running=false, iv=null, preIv=null;
+
+    function randPos(){
+      const W = arena.clientWidth, H = arena.clientHeight, w=80, h=80;
+      fairy.style.left = Math.floor(Math.random()*(W-w))+'px';
+      fairy.style.top  = Math.floor(Math.random()*(H-h))+'px';
+    }
+
+    function startGame(){
+      running=true; fairy.style.display='block'; randPos();
+      iv=setInterval(()=>{
+        t--; timerEl.textContent=t;
+        if (t<=0) end(false);
+      },1000);
+    }
+
+    function end(success){
+      clearInterval(iv);
+      localStorage.setItem('tfResult', success?'success':'fail');
+      if (success) localStorage.setItem('tfActive','0');
+      window.location.href = 'index.html';
+    }
+
+    fairy.addEventListener('click', ()=> {
+      if (!running) return;
+      clicks++; clicksEl.textContent=clicks;
+      if (clicks>=TARGET) return end(true);
+      randPos();
+    });
+
+    // pre-countdown from 3
+    preIv=setInterval(()=>{
+      pre--; preEl.textContent=pre>0?pre:'GO!';
+      if (pre<=0){
+        clearInterval(preIv);
+        setTimeout(()=>{ preEl.style.display='none'; startGame(); }, 600);
+      }
+    }, 900);
+  </script>
+</body>
+</html>

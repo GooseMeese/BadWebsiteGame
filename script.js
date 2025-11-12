@@ -82,7 +82,7 @@ $('#signup-form').addEventListener('submit', (e) => {
   update();
   if (!submitBtn.disabled) {
     // all rules satisfied
-    window.location.href = 'home.html';
+    window.location.href = 'index.html';
   }
 });
 

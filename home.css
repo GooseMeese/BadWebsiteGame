@@ -1,0 +1,142 @@
+:root{
+  --maroon:#7f4444; --slab:#ddd; --ink:#000; --yellow:#ffd800;
+}
+
+html,body{margin:0;background:#ddd;font-family:"gg sans",system-ui,sans-serif;color:var(--ink)}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:20px 36px;background:#ddd}
+.logo{margin:0;font-size:64px;font-weight:900}
+.cart-link{position:relative;text-decoration:none;color:#000;font-size:44px}
+.cart-emoji{filter:drop-shadow(0 2px 0 rgba(0,0,0,.2))}
+.badge{
+  position:absolute; right:-10px; top:-8px; 
+  background:var(--yellow); border:3px solid #000; border-radius:50%;
+  width:30px; height:30px; display:grid; place-items:center;
+  font-weight:900; font-size:18px;
+}
+
+.grid{
+  background:var(--maroon);
+  padding:40px 60px 120px;
+  display:grid; grid-template-columns: repeat(3, 1fr); gap:80px;
+}
+.card{
+  text-align:left; display:grid; grid-template-columns: 120px 1fr; gap:24px;
+  padding:20px 30px; border:none; cursor:pointer; background:var(--slab);
+  box-shadow:0 6px 0 rgba(0,0,0,.2);
+}
+.card img{width:120px;height:120px;object-fit:cover;border:6px solid #fff;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.card .name{font-size:56px;font-weight:900;margin-bottom:8px}
+.card .price{font-size:48px;font-weight:900}
+.card:active{transform:translateY(1px)}
+
+.hidden{ display:none !important; }
+
+/* gas popup*/
+.gas-pop{
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.65);
+  display: grid; place-items: center;
+  padding: 24px;
+}
+.gas-box{
+  width: min(1400px, 96vw);
+  min-height: 420px;
+  background: #fff;
+  border: 10px solid #000;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  padding: 18px 18px 28px;
+  display: grid;
+  align-content: start;
+  gap: 22px;
+}
+.gas-text{
+  font-size: 12px;
+  line-height: 1.1;
+  margin: 0;
+}
+.gas-actions{
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+}
+
+
+.gas-btn{
+  height: 52px;
+  font-size: 13px;
+  font-weight: 900;
+  border: 5px solid #000;
+  padding: 4px 6px;
+  text-wrap: pretty;
+  overflow: visible;
+  cursor: pointer;
+}
+.gas-yes{ background:#2ecc71; }
+.gas-no { background:#e74c3c; }
+
+/* Jesus :)*/
+.jesus{
+  position: fixed; inset: 0; z-index: 10000;
+  background: url('jesus.jpg') center / cover no-repeat #000;
+  opacity: 0; transition: opacity 900ms ease;
+}
+.jesus.show{ opacity: 1; }
+
+.jesus-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:6vw;
+  font-weight:1000;
+  letter-spacing:2px;
+  line-height:1.2;
+  background: linear-gradient(
+    90deg,
+    red, orange, yellow, green, cyan, blue, violet, red
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: rainbow 4s linear infinite;
+  text-shadow: 0 0 20px rgba(255,255,255,0.8),
+               0 0 60px rgba(255,255,255,0.4);
+}
+
+/* subtle animated rainbow scroll */
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
+.hidden{display:none !important}
+
+/* Heist popup */
+.tf{
+  position:fixed; inset:0; z-index:99999; display:grid; place-items:center;
+  background:rgba(0,0,0,.7); padding:24px;
+}
+.tf-box{
+  width:min(1200px,96vw); background:#fff; border:10px solid #000;
+  padding:16px; display:grid; gap:14px; align-content:center; text-align:center;
+}
+.tf-img{ width:160px; height:auto; margin:0 auto }
+.tf-text{ font-size:12px; margin:0 }           /* tiny text per spec */
+.tf-actions{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+.tf-btn{
+  height:120px;                                 /* comically large under tiny text */
+  font-size:28px; font-weight:900; border:6px solid #000; cursor:pointer
+}
+.tf-purple{ background:#8a2be2; color:#fff }
+.tf-yellow{ background:#ffd800; color:#000 }
+
+/* Result popup */
+.tf-result{
+  position:fixed; inset:0; z-index:99999; display:grid; place-items:center;
+  background:rgba(0,0,0,.55)
+}
+.tf-result-box{
+  background:#fff; border:8px solid #000; padding:22px 26px; text-align:center
+}
+.tf-result-box p{ font-size:24px; font-weight:900; margin:0 0 12px }
+.tf-result-close{ font-size:18px; font-weight:900; padding:10px 16px; border:4px solid #000; cursor:pointer }

@@ -1,0 +1,230 @@
+:root{
+  --maroon:#7f4444;
+  --slab:#dddddd;
+  --olive:#586f41;
+  --ink:#000;
+  --blue:#143fcf;
+}
+
+/* page */
+html,body{
+  margin:0;
+  font-family:"gg sans","Inter","Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  background:var(--maroon);
+  color:var(--ink);
+}
+
+.pay-wrap{
+  padding: 20px 32px 80px;
+}
+
+.pay-title{
+  margin: 6px 0 16px;
+  font-size: 120px;
+  line-height: .9;
+  font-weight: 900;
+}
+
+/* inner slab */
+.pay-card{
+  margin: 0 18px;
+  background: var(--slab);
+  padding: 24px 32px 40px;
+  min-height: 520px;
+  box-shadow: inset 0 0 0 12px rgba(0,0,0,.03);
+}
+
+/* rows */
+.row{
+  margin: 18px 0 34px;
+}
+.row-head{
+  text-align:center;
+  font-size:36px;
+  font-weight:900;
+  margin-bottom: 8px;
+}
+.row-split .row-head{
+  text-align:left;
+  margin-left: 56%;
+}
+
+.inp{
+  background: var(--olive);
+  border: 6px solid #000;
+  border-radius: 4px;
+  height: 58px;
+  outline: none;
+  color:#111;
+  font-size: 28px;
+  font-weight: 800;
+  text-indent: 12px;
+  box-shadow: 0 2px 0 rgba(0,0,0,.5);
+}
+.long{ width: 880px; display:block; margin: 0 auto; }
+.right{ margin-left: auto; margin-right: 48px; width: 700px; }
+
+.total-row{
+  display:flex; align-items:flex-end; gap: 32px;
+  margin: 26px 0 26px 96px;
+}
+.total-label{
+  font-size: 140px; font-weight: 900; letter-spacing:1px;
+}
+.total-amt{
+  font-size: 26px; font-weight: 900; transform: translateY(-22px);
+}
+
+/* footer area */
+.foot{
+  display:grid;
+  grid-template-columns: 240px 1fr 460px;
+  align-items:end;
+  column-gap: 160px;
+  margin-top: 28px;
+}
+
+.foot-head{
+  font-size:36px; font-weight:900; margin-bottom: 12px;
+}
+
+.cvv-block .inp.square{ width: 110px; height: 70px; }
+.exp{ width: 210px; height: 64px; }
+.exp::placeholder{ color:#2b2b2b; opacity:.5; font-weight:900; }
+
+/* gargantuan, misaligned Pay button */
+.pay-btn{
+  justify-self:end;
+  width: 420px; height: 210px;
+  background: var(--blue); color:#000;
+  font-size: 140px; font-weight: 900;
+  border: none; cursor: pointer;
+  box-shadow: 0 2px 0 rgba(0,0,0,.6);
+}
+.pay-btn:active{ transform: scale(.995); }
+
+/* no placeholders elsewhere for extra confusion */
+#cardName::placeholder,
+#cardNumber::placeholder,
+#cvv::placeholder { color: transparent; }
+
+
+
+/* ---- Rule cards (same look & motion as sign-up page) ---- */
+.rules{
+  margin: 14px 0 20px;
+  display: grid;
+  gap: 14px;
+}
+.rule{
+  display: none;                 /* hidden until introduced → collapses space */
+  opacity: 0;
+  transform: translateX(40px);
+  pointer-events: none;
+  transition: opacity .25s ease, transform .35s cubic-bezier(.22,.8,.26,.99);
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,.15);
+  overflow: hidden;
+  background: #ffc9c9;          /* red fail */
+}
+.rule.visible{
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.rule.pass{ background: #b8f5b8; }
+.rule.fail{ background: #ffc9c9; }
+
+.rule-head{
+  display:flex; align-items:center; gap:10px;
+  padding: 10px 14px;
+  background: #f3a7a7;          /* red band */
+  font-weight: 700;
+}
+.rule.pass .rule-head{ background: #89e089; } /* green band */
+
+.rule-title{ flex: 0 0 auto; }
+.rule-icon{
+  margin-left: auto;
+  width: 22px; height: 22px; border-radius: 50%;
+  display:inline-grid; place-items:center;
+  font-weight:900; font-size:14px;
+  background:#fff;
+}
+.rule.pass .rule-icon{ color:#1f7a1f; }
+.rule.fail .rule-icon{ color:#ce2f2f; }
+.rule.pass .rule-icon::before{ content: "✓"; }
+.rule.fail .rule-icon::before{ content: "✕"; }
+
+.rule p{ margin:0; padding:14px; line-height:1.5; }
+
+/* Disable style for Pay (keeps the giant look) */
+#payBtn[disabled]{ filter: grayscale(.2) brightness(.9); cursor:not-allowed; }
+
+
+
+/* ---------- Popup ---------- */
+.hidden{ display: none !important; }
+
+.pw-modal{
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,.55);
+  display: grid; place-items: center;
+  padding: 24px;
+  font-family: "gg sans", system-ui, sans-serif;
+}
+.pw-card{
+  position: relative;
+  width: min(1100px, 96vw);
+  background: #fff;
+  padding: 24px;
+  border: 8px solid #000;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+}
+.pw-close{
+  position:absolute; top:6px; right:6px;
+  border:none; background:transparent; font-size:28px; cursor:pointer;
+}
+
+.pw-label{
+  display:block; font-size:28px; font-weight:900; margin: 6px 0 14px;
+}
+.pw-row{ display:grid; grid-template-columns: 1fr auto; gap: 12px; }
+.pw-input{
+  height: 64px; border: 6px solid #000; border-radius: 4px;
+  font-size: 28px; font-weight: 800; text-indent: 12px;
+}
+.pw-btn{
+  padding: 0 18px; min-width: 440px;
+  height: 64px; font-size: 22px; font-weight: 900;
+  border: none; cursor: pointer;
+  background: #ffd400; box-shadow: 0 2px 0 rgba(0,0,0,.6);
+}
+
+/* fail text (huge, purple + green) */
+.pw-fail{
+  font-size: 48px; font-weight: 900; text-align:center; margin-bottom: 8px;
+  background: linear-gradient(90deg, #8a2be2, #39ff14);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: 0 0 1px rgba(0,0,0,.25);
+}
+
+/* ---------- Santa success screen ---------- */
+.santa{
+  position: fixed; inset: 0; z-index: 10000;
+  background: url('santa.jpg') center / cover no-repeat #fff;
+  display: grid; place-items: center;
+  text-align: center;
+}
+.santa-overlay{
+  background: rgba(255,255,255,.75);
+  padding: 18px 22px; max-width: 1100px;
+  border: 6px solid #000;
+}
+.santa-overlay h1{
+  margin: 0 0 12px; color:#000; font-size: 44px; line-height:1.2; font-weight: 900;
+}
+.santa-overlay a{
+  font-size: 22px; font-weight: 800; color:#004; text-decoration: underline;
+}

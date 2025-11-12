@@ -14,7 +14,6 @@
   --shadow: 0 2px 0 rgba(0,0,0,.25), 0 6px 24px rgba(0,0,0,.2);
 }
 
-/* Try to use gg sans if present */
 html, body {
   height: 100%;
   margin: 0;
@@ -68,7 +67,7 @@ html, body {
 }
 .input:focus{ border-bottom-color:#323232; }
 
-/* Rules list */
+
 .rules{
   margin: 14px 0 26px;
   display: grid;
@@ -82,9 +81,9 @@ html, body {
   gap: 14px;
 }
 
-/* Hidden rules don't take space; visible rules animate in */
+/* Hidden rules don't take space*/
 .rule{
-  display: none;                 /* <— collapses empty space */
+  display: none;
   opacity: 0;
   transform: translateX(40px);
   pointer-events: none;
@@ -95,7 +94,7 @@ html, body {
   background: var(--fail-bg);
 }
 .rule.visible{
-  display: block;                /* <— takes space only when shown */
+  display: block;
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;

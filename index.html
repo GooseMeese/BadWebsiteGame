@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Store! • Home</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<!-- Tooth Fairy heist popup -->
+<section id="tfModal" class="tf hidden" aria-hidden="true">
+  <div class="tf-box">
+    <img src="toothfairy.png" alt="Tooth Fairy" class="tf-img">
+    <p class="tf-text">The Tooth Fairy has become a thug! He has stolen 5 of your items!</p>
+    <div class="tf-actions">
+      <button id="tfChase" class="tf-btn tf-purple">Chase the Tooth Fairy</button>
+      <button id="tfIgnore" class="tf-btn tf-yellow">Ignore this vile creature</button>
+    </div>
+  </div>
+</section>
+
+<!-- Tooth Fairy result popup -->
+<section id="tfResultModal" class="tf-result hidden" aria-hidden="true">
+  <div class="tf-result-box">
+    <p id="tfResultText"></p>
+    <button id="tfResultClose" class="tf-result-close">OK</button>
+  </div>
+</section>
+
+
+<body>
+  <header class="topbar">
+    <h1 class="logo">Store!</h1>
+    <a class="cart-link" href="checkout.html" aria-label="Go to cart">
+      <span class="cart-emoji">🛷</span>
+      <span id="cartBadge" class="badge">0</span>
+    </a>
+  </header>
+
+  <main class="grid">
+
+
+        <!--gas popup -->
+    <section id="gasPopup" class="gas-pop hidden" aria-hidden="true">
+    <div class="gas-box">
+        <p class="gas-text">Are you sure you want to buy gas? The prices are pretty high atm.</p>
+        <div class="gas-actions">
+        <button id="gasMore" class="gas-btn gas-yes">
+            No, I would love to buy even more gas
+        </button>
+        <button id="gasNo" class="gas-btn gas-no">
+            Yes, I would love to give my money away to climate change!
+        </button>
+        </div>
+    </div>
+    </section>
+
+    <!-- jesus overlay -->
+    <section id="jesusOverlay" class="jesus hidden" aria-hidden="true">
+        <h1 class="jesus-text">
+            JESUS HAS SAVED YOU FROM BUYING CONTRABAND
+        </h1>
+    </section>
+
+
+    <!-- 6 cards -->
+    <button class="card" data-id="soda">
+      <img src="soda.jpg" alt="soda">
+      <div class="txt">
+        <div class="name">SODA</div>
+        <div class="price">$2.98</div>
+      </div>
+    </button>
+
+    <button class="card" data-id="tree">
+      <img src="tree.jpg" alt="tree">
+      <div class="txt">
+        <div class="name">TREE</div>
+        <div class="price">$85.99</div>
+      </div>
+    </button>
+
+    <button class="card" data-id="diamond">
+      <img src="diamond.jpg" alt="diamond">
+      <div class="txt">
+        <div class="name">Diamond</div>
+        <div class="price">$33.99</div>
+      </div>
+    </button>
+
+    <button class="card" data-id="keychain">
+      <img src="keychain.jpg" alt="keychain">
+      <div class="txt">
+        <div class="name">Keychain</div>
+        <div class="price">$1.25</div>
+      </div>
+    </button>
+
+    <button class="card" data-id="flowers">
+      <img src="flowers.jpg" alt="flowers">
+      <div class="txt">
+        <div class="name">flowers</div>
+        <div class="price">$22.49</div>
+      </div>
+    </button>
+
+    <button class="card" data-id="gas">
+      <img src="gas.jpg" alt="gas">
+      <div class="txt">
+        <div class="name">gas</div>
+        <div class="price">$103</div>
+      </div>
+    </button>
+  </main>
+
+  <script src="home.js" defer></script>
+  <script src="toothfairy.js" defer></script>
+</body>
+</html>

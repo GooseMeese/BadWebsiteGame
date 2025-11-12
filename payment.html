@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment Details</title>
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+  <main class="pay-wrap">
+    <h1 class="pay-title">Payment Details</h1>
+
+    <section class="pay-card">
+      <!-- Cardholder Name -->
+      <div class="row">
+        <div class="row-head">Cardholder Name</div>
+        <input type="text" class="inp long" id="cardName" autocomplete="off">
+      </div>
+
+      <!-- Name rules -->
+      <div class="rules" id="name-rules" aria-live="polite">
+        <div class="rule" id="name-rule-1">
+          <div class="rule-head">
+            <span class="rule-title">Rule 1</span>
+            <span class="rule-icon" aria-hidden="true"></span>
+          </div>
+          <p>Your card name must be <b>10 characters</b>.</p>
+        </div>
+
+        <div class="rule" id="name-rule-2">
+          <div class="rule-head">
+            <span class="rule-title">Rule 2</span>
+            <span class="rule-icon" aria-hidden="true"></span>
+          </div>
+          <p>Your card name must be a <b>palindrome</b>.</p>
+        </div>
+      </div>
+
+      <!-- Card Number -->
+      <div class="row row-split">
+        <div class="row-head">Card Number</div>
+        <input type="text" class="inp long right" id="cardNumber" inputmode="numeric" disabled>
+      </div>
+
+      <!-- Number rules -->
+      <div class="rules" id="num-rules" aria-live="polite">
+        <div class="rule" id="num-rule-1">
+          <div class="rule-head"><span class="rule-title">Rule 1</span><span class="rule-icon"></span></div>
+          <p>The <b>sum of the first 4 digits</b> must be <b>24</b>.</p>
+        </div>
+        <div class="rule" id="num-rule-2">
+          <div class="rule-head"><span class="rule-title">Rule 2</span><span class="rule-icon"></span></div>
+          <p>The <b>first 8 digits</b> must <b>alternate even/odd</b>.</p>
+        </div>
+        <div class="rule" id="num-rule-3">
+          <div class="rule-head"><span class="rule-title">Rule 3</span><span class="rule-icon"></span></div>
+          <p>The number must be <b>divisible by 3</b>.</p>
+        </div>
+        <div class="rule" id="num-rule-4">
+          <div class="rule-head"><span class="rule-title">Rule 4</span><span class="rule-icon"></span></div>
+          <p>The <b>last 4 digits</b> must include the atomic numbers for <b>Sodium</b> and <b>Chlorine</b>.</p>
+        </div>
+      </div>
+
+      <div class="total-row">
+        <span class="total-label">TOTAL:</span>
+        <span class="total-amt">$45040.98</span>
+      </div>
+
+      <!-- CVV, Expiration, and Pay -->
+      <div class="foot">
+        <div class="cvv-block">
+          <div class="foot-head">CVV</div>
+          <input type="text" class="inp square" id="cvv" inputmode="numeric" maxlength="3" disabled>
+        </div>
+
+        <div class="exp-block">
+          <div class="foot-head">Expiration</div>
+          <input type="text" class="inp exp" id="exp" placeholder="MM/YY" inputmode="numeric" disabled>
+        </div>
+
+        <button id="payBtn" class="pay-btn" type="button" disabled>Pay</button>
+      </div>
+
+      <!-- CVV rules -->
+      <div class="rules" id="cvv-rules" aria-live="polite">
+        <div class="rule" id="cvv-rule-1">
+          <div class="rule-head"><span class="rule-title">Rule 1</span><span class="rule-icon"></span></div>
+          <p>The CVV should be a <b>3-digit prime number</b>.</p>
+        </div>
+      </div>
+
+      <!-- Exp rules -->
+      <div class="rules" id="exp-rules" aria-live="polite">
+        <div class="rule" id="exp-rule-1">
+          <div class="rule-head"><span class="rule-title">Rule 1</span><span class="rule-icon"></span></div>
+          <p>The <b>month</b> must be the best month of the year.</p>
+        </div>
+        <div class="rule" id="exp-rule-2">
+          <div class="rule-head"><span class="rule-title">Rule 2</span><span class="rule-icon"></span></div>
+          <p>The <b>year</b> must be a <b>leap year</b>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="payment.js" defer></script>
+
+  <!-- Password popup -->
+  <section id="pwModal" class="pw-modal hidden" aria-hidden="true">
+    <div class="pw-card">
+      <div id="pwFail" class="pw-fail hidden">YOU HAVE 3 MORE ATTEMPTS</div>
+
+      <label for="confirmPwd" class="pw-label">Enter your account password</label>
+      <div class="pw-row">
+        <input id="confirmPwd" type="password" class="pw-input" autocomplete="off" />
+        <button id="confirmBtn" class="pw-btn" type="button">
+          This is my password and I am sure of it
+        </button>
+      </div>
+
+      <button id="pwClose" class="pw-close" type="button" aria-label="Close">✕</button>
+    </div>
+  </section>
+
+  <!-- Santa screen -->
+  <section id="santaScreen" class="santa hidden" aria-hidden="true">
+    <div class="santa-overlay">
+      <h1>Santa has come early and has decided to steal your items, buy a coke to steal them back!</h1>
+      <p><a href="https://www.coca-cola.com/us/en" target="_blank" rel="noopener">https://www.coca-cola.com/us/en</a></p>
+    </div>
+  </section>
+</body>
+</html>

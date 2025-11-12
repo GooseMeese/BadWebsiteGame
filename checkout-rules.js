@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const streetRules = [
     {
       el: createRuleAfter(nameRules.at(-1).el, 'street-rule-1', 'Rule 1',
-        'Must be the street address for School of Mines.'),
+        'Must be the street address for School of Mines. (Hint: it’s not 1500 Illinois St.)'),
       check: (s) => s.trim().toLowerCase() === '1500illinoisst'
     }
   ];

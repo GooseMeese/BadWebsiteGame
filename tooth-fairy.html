@@ -40,7 +40,7 @@
     }
 
     function startGame(){
-      running=true; fairy.style.display='block'; randPos();
+      running=true; fairy.style.display='block'; randPos();  
       iv=setInterval(()=>{
         t--; timerEl.textContent=t;
         if (t<=0) end(false);

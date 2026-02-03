@@ -14,13 +14,13 @@
     .fairy{position:absolute;width:80px;height:80px;cursor:pointer;user-select:none}
     .msg{position:fixed;bottom:16px;left:0;right:0;text-align:center;font-weight:900}
   </style>
-</head>
+</head> 
 <body>
   <div class="top-timer">Time left: <span id="timer">15</span></div>
   <div id="pre" class="big-count">3</div>
   <div class="arena" id="arena">
     <img id="fairy" class="fairy" src="toothfairy.png" alt="fairy" style="display:none">
-  </div>
+  </div>  
   <div class="msg">Clicks: <span id="clicks">0</span> / 10</div>
 
   <script>
@@ -40,13 +40,13 @@
     }
 
     function startGame(){
-      running=true; fairy.style.display='block'; randPos();  
+      running=true; fairy.style.display='block'; randPos();
       iv=setInterval(()=>{
         t--; timerEl.textContent=t;
         if (t<=0) end(false);
       },1000);
     }
-      
+
     function end(success){
       clearInterval(iv);
       localStorage.setItem('tfResult', success?'success':'fail');
@@ -61,7 +61,7 @@
       randPos();
     });
 
-    // pre-countdown from 3
+    // pre-countdown from 3 2 1 GO!
     preIv=setInterval(()=>{
       pre--; preEl.textContent=pre>0?pre:'GO!';
       if (pre<=0){
